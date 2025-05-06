@@ -1,55 +1,53 @@
-# Yelp_Review_SentimentAnalysis
-This project uses Yelp JSON data in a Streamlit app to analyze review sentiment, predict sentiment by business type, and visualize user networks. It helps business owners understand feedback and improve performance on Yelp.
+# 📊 Yelp Review Sentiment Analysis
 
-🔍 Key Business Questions:
-How do features like review counts, check-ins, and amenities impact customer ratings?
+This project leverages the Yelp Open Dataset to build an interactive Streamlit app that helps business owners understand customer feedback, predict sentiment trends, and visualize user connections. It combines NLP, predictive modeling, and network analysis to deliver actionable insights.
 
-What is the sentiment of customer reviews—and can it predict future performance?
+## 🎯 Objective
+To analyze Yelp reviews for sentiment, identify influential reviewers, and predict customer satisfaction using business attributes and engagement metrics.
 
-What cities and business categories receive the most reviews?
+## 🔍 Key Business Questions
+- How do review counts, check-ins, and amenities impact customer ratings?
+- What is the overall sentiment of customer reviews, and can it predict performance?
+- Which cities and business categories receive the most reviews?
+- How are users interconnected, and what categories are commonly co-reviewed?
 
-How are customers interconnected (friends/fans), and which categories are co-reviewed?
+## 🧠 Steps Taken
 
-🧠 Steps Taken:
-Data Sourcing & Cleaning:
+### 🗂 Data Sourcing & Cleaning
+- **Source:** Yelp Open Dataset
+- **Data Types:** Business, Reviews, Users, Check-ins
+- **Processing:** Cleaned and loaded data into **PostgreSQL** using **Python** and **PySpark**
 
-Source: Yelp Open Dataset
+### 🧱 Database Integration
+- Combined JSON files into a relational schema using PostgreSQL
+- Constructed user-business-review relationships
+- Built user connection graphs in **Neo4j** (friends, fans, influencers)
 
-Data Types: Business, Reviews, Users, Check-ins
+### 💬 Sentiment Analysis
+- Performed sentiment scoring on individual reviews using **TextBlob**
+- Aggregated sentiment scores by business location and category
+- Analysis led by **HaEun Yoon**
 
-Preprocessing done using Python (PySpark) and stored using PostgreSQL
+### ✂️ Text Summarization
+- Used **T5-small** transformer model to summarize long reviews
+- Future potential: upgrading to **BERT** for improved contextual summaries
 
-Database Integration:
+### 🤖 Predictive Modeling
+- **Features Used:** Wi-Fi availability, parking, food category, review count, check-ins, sentiment score
+- **Models Tested:** Linear Regression (best performer), Random Forest, Gradient Boosting
+- Built and evaluated models using **PySpark**
 
-Combined JSON files into PostgreSQL for structured querying
+### 📊 Visualization
+- **Neo4j:** Mapped reviewer influence and user networks
+- **Streamlit App:** Deployed interactive dashboard for business insights
 
-Used Neo4j to build relationship graphs (reviewers’ friends, fans, businesses)
+## 🧰 Tools & Technologies
+- **Languages:** Python, PySpark, SQL
+- **Database:** PostgreSQL
+- **Modeling & NLP:** TextBlob, Hugging Face T5, scikit-learn
+- **Graph DB:** Neo4j
+- **Dashboard:** Streamlit
 
-Sentiment Analysis:
+---
 
-Used TextBlob to assign sentiment scores to individual reviews
-
-Averaged sentiment by location/category
-
-Modeled by HaEun Yoon
-
-Text Summarization:
-
-Used T5-small transformer model to generate concise summaries of long reviews
-
-Explored future upgrade to BERT for enhanced summarization
-
-Predictive Modeling:
-
-Features: Wi-Fi, parking, food category, review count, check-ins, sentiment score
-
-Models Tested: Linear Regression (best), Random Forest, Gradient Boosting
-
-Conducted using PySpark
-
-Visualization:
-
-Neo4j used for real-time influencer graphs and network mapping
-
-Streamlit used to build an interactive dashboard
-
+> 👨‍💻 Developed by HaEun Yoon and team — as part of Columbia University's Applied Analytics program
